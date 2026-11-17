@@ -1,0 +1,19 @@
+[
+  {
+    "policy": "P1",
+    "device": "D1",
+    "revision": 1,
+    "fragments": [
+      {"from": 1, "to": 5, "deductible": 0, "limit": 100}
+    ]
+  },
+  {
+    "policy": "P1",
+    "device": "D1",
+    "revision": 2,
+    "fragments": [
+      {"from": 1, "to": 2, "deductible": 0, "limit": 100},
+      {"from": 2, "to": 5, "deductible": 20, "limit": 60}
+    ]
+  }
+]
