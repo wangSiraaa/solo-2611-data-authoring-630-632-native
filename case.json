@@ -1,0 +1,99 @@
+{
+  "before": [
+    {
+      "cell": "x",
+      "revision": 1,
+      "depth": 500,
+      "valid": true
+    },
+    {
+      "cell": "y",
+      "revision": 1,
+      "depth": 600,
+      "valid": true
+    }
+  ],
+  "shallower": {
+    "cell": "x",
+    "revision": 2,
+    "depth": 470,
+    "valid": true
+  },
+  "deepened": {
+    "cell": "x",
+    "revision": 3,
+    "depth": 550,
+    "valid": true
+  },
+  "tides": {
+    "10": 20,
+    "11": 30
+  },
+  "request": {
+    "id": "booking-A",
+    "start": 10,
+    "duration": 2,
+    "cells": [
+      "x",
+      "y"
+    ],
+    "draft": 480,
+    "required_clearance": 20
+  },
+  "routes": {
+    "A": {
+      "cells": [
+        "x",
+        "y"
+      ],
+      "segments": [
+        "shared"
+      ]
+    },
+    "B": {
+      "cells": [
+        "y"
+      ],
+      "segments": [
+        "shared"
+      ]
+    }
+  },
+  "capacities": {
+    "shared": 1
+  },
+  "expected": {
+    "before": {
+      "state": "CONFIRMED",
+      "occupied_units": 1,
+      "reason": {
+        "safe": true,
+        "minute": null,
+        "cell": null,
+        "clearance": null
+      }
+    },
+    "after": {
+      "state": "RESCHEDULE_REQUIRED",
+      "occupied_units": 0,
+      "reason": {
+        "safe": false,
+        "minute": 10,
+        "cell": "x",
+        "clearance": 10
+      }
+    }
+  },
+  "additional_actions": [
+    {
+      "kind": "publish_unknown",
+      "cell": "x",
+      "revision": 4,
+      "valid": false
+    },
+    {
+      "kind": "advance_clock",
+      "minute": 10
+    }
+  ]
+}
