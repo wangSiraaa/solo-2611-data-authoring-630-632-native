@@ -1,0 +1,93 @@
+{
+  "coverage": [
+    {
+      "policy": "P1",
+      "device": "D1",
+      "revision": 1,
+      "fragments": [
+        {
+          "from": 1,
+          "to": 5,
+          "deductible": 0,
+          "limit": 100
+        }
+      ]
+    },
+    {
+      "policy": "P1",
+      "device": "D1",
+      "revision": 2,
+      "fragments": [
+        {
+          "from": 1,
+          "to": 5,
+          "deductible": 0,
+          "limit": 50
+        }
+      ]
+    },
+    {
+      "policy": "P1",
+      "device": "D1",
+      "revision": 3,
+      "fragments": [
+        {
+          "from": 1,
+          "to": 5,
+          "deductible": 0,
+          "limit": 90
+        }
+      ]
+    }
+  ],
+  "request": {
+    "id": "pay-3",
+    "claim": {
+      "id": "C1",
+      "revision": 1,
+      "day": 3,
+      "loss": 150
+    },
+    "accepted_commitments": [
+      40,
+      30
+    ],
+    "amount": 20,
+    "paused": false
+  },
+  "expected": {
+    "before": {
+      "accepted": true,
+      "payable_before": 30,
+      "recovery": 0
+    },
+    "after": {
+      "accepted": false,
+      "payable_before": 0,
+      "recovery": 20
+    }
+  },
+  "additional_actions": [
+    {
+      "kind": "claim_revision",
+      "revision": 2,
+      "day": 8,
+      "loss": 150
+    },
+    {
+      "kind": "pause"
+    },
+    {
+      "kind": "resume"
+    },
+    {
+      "kind": "receiver_accept_then_drop_response",
+      "payment_id": "pay-3"
+    },
+    {
+      "kind": "coverage_revision",
+      "revision": 4,
+      "fragments": []
+    }
+  ]
+}
