@@ -1,0 +1,8 @@
+{
+  "nodes": {"F1": "feeder", "F2": "feeder", "L": "load"},
+  "edges": {"a": ["F1", "L"], "b": ["F2", "L"]},
+  "closed": ["a"],
+  "ordinary_points": [{"at": 0, "value": 10}, {"at": 10, "value": 20}],
+  "wrap_points": [{"at": 0, "value": 90}, {"at": 10, "value": 5}],
+  "meter": {"load": "L", "modulus": 100, "rate": 3}
+}
